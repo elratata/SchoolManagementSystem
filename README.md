@@ -1,0 +1,1 @@
+hey guys, this is where you will manage the schools (the best way)

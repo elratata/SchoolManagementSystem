@@ -1,6 +1,11 @@
 package org.tony.dto;
 
 public class SchoolManagementSystem {
+
+    private Department[] departments;
+    private Student[] students;
+    private Teacher[] teachers;
+    private Course[] courses;
     public SchoolManagementSystem() {
     }
 
@@ -11,7 +16,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Department findDepartment(String deptID){
-        return new Department();
+        return null;
     }
 
     /**
@@ -21,7 +26,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Teacher findTeacher(String teacherID){
-        return new Teacher();
+        return null;
     }
 
     /**
@@ -31,7 +36,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Student findStudent(String studentID){
-        return new Student();
+        return null;
     }
 
     /**
@@ -41,7 +46,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Course findCourse(String courseID){
-        return new Course();
+        return null;
     }
 
     /**

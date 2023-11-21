@@ -7,6 +7,7 @@ import lombok.ToString;
 
 /**
  * Teacher class
+ *
  * @author Le Tuan Huy Nguyen
  */
 @Getter
@@ -23,8 +24,9 @@ public class Teacher {
 
     /**
      * Constructor for the teacher class
-     * @param fname the teacher's first name
-     * @param lname the teacher's last name
+     *
+     * @param fname      the teacher's first name
+     * @param lname      the teacher's last name
      * @param department the teacher's department
      */
     public Teacher(String fname, String lname, Department department) {

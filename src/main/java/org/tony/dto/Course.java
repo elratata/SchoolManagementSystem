@@ -7,6 +7,7 @@ import lombok.ToString;
 
 /**
  * Course class
+ *
  * @author Le Tuan Huy Nguyen
  */
 @ToString
@@ -24,6 +25,7 @@ public class Course {
     private int nextID;
     private static final int MAX_STUDENT_NUM_PER_COURSE = 5; // Max # of students per course
     private static final int MAX_COURSE_NUM = 30; // Max # of courses per school
+
     public Course(String courseName, double credit, Department department) {
     }
 }

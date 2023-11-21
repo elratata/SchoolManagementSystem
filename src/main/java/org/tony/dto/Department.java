@@ -7,6 +7,7 @@ import lombok.ToString;
 
 /**
  * Department of the school
+ *
  * @author Le Tuan Huy Nguyen
  */
 @EqualsAndHashCode
@@ -21,6 +22,7 @@ public class Department {
 
     /**
      * Constructor for the department
+     *
      * @param departmentName the department name
      */
     public Department(String departmentName) {

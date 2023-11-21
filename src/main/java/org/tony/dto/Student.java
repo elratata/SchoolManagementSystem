@@ -7,6 +7,7 @@ import lombok.ToString;
 
 /**
  * Student class
+ *
  * @author Le Tuan Huy Nguyen
  */
 @Getter
@@ -28,11 +29,12 @@ public class Student {
 
     /**
      * Constructor for student
-     * @param fname the student first name
-     * @param lname the student last name
+     *
+     * @param fname      the student first name
+     * @param lname      the student last name
      * @param department the student department
      */
-    public Student(String fname, String lname, Department department ) {
+    public Student(String fname, String lname, Department department) {
 
     }
 }

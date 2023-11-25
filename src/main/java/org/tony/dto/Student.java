@@ -15,7 +15,6 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Student {
-
     private int nextID;
     private String name;
     private String fname;

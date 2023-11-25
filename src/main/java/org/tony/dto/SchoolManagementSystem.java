@@ -1,7 +1,6 @@
 package org.tony.dto;
 
 public class SchoolManagementSystem {
-
     private Department[] departments;
     private Student[] students;
     private Teacher[] teachers;

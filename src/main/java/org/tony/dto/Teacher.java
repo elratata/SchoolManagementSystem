@@ -20,6 +20,7 @@ public class Teacher {
     private String fname;
     private String lname;
     private String id;
+    private static int nextID;
     private final static int MAX_NUM_TEACHERS = 20;
 
     /**

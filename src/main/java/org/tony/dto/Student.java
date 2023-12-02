@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Student {
-    private int nextID;
+    private int nextId;
     private String name;
     private String fname;
     private String lname;
@@ -23,7 +23,9 @@ public class Student {
     private Department department;
     private Course[] courses;
     private String id;
+    @Getter
     private final static int MAX_COURSE_TAKEN = 5; // max # of course per student
+    @Getter
     private final static int MAX_STUDENT_NUM = 200; // max # of students per school
 
     /**
@@ -34,6 +36,10 @@ public class Student {
      * @param department the student department
      */
     public Student(String fname, String lname, Department department) {
-
+        nextId++;
+        this.id = String.format("C%03d", nextId);
+        this.fname = fname;
+        this.lname = lname;
+        this.department = department;
     }
 }

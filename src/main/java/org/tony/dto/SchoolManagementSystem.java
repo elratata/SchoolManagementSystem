@@ -1,5 +1,7 @@
 package org.tony.dto;
 
+import java.util.Arrays;
+
 public class SchoolManagementSystem {
     private Department[] departments;
     private Student[] students;
@@ -7,6 +9,10 @@ public class SchoolManagementSystem {
     private Course[] courses;
 
     public SchoolManagementSystem() {
+        departments = new Department[Department.getMAX_DEPT_NUM()];
+        students = new Student[Student.getMAX_STUDENT_NUM()];
+        teachers = new Teacher[Teacher.getMAX_NUM_TEACHERS()];
+        courses = new Course[Course.getMAX_COURSE_NUM()];
     }
 
     /**
@@ -96,7 +102,12 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addDepartment(String deptName) {
-        return;
+        if (Utils.getLength(departments) < Department.getMAX_DEPT_NUM()){
+            Department department = new Department(deptName);
+            departments[Utils.getLength(departments)] = department;
+            System.out.println(Arrays.toString(departments));
+            System.out.println(Utils.getLength(departments));
+        }
     }
 
     /**
@@ -156,4 +167,6 @@ public class SchoolManagementSystem {
     public void registerCourse(String studentID, String courseID) {
         return;
     }
+
+
 }

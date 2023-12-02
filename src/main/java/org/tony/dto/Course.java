@@ -22,10 +22,18 @@ public class Course {
     private int studentNum;
     private Department department;
     private String id;
-    private int nextID;
+    private static int nextId;
+
+    @Getter
     private static final int MAX_STUDENT_NUM_PER_COURSE = 5; // Max # of students per course
+    @Getter
     private static final int MAX_COURSE_NUM = 30; // Max # of courses per school
 
     public Course(String courseName, double credit, Department department) {
+        nextId++;
+        this.id = String.format("C%03d", nextId);
+        this.courseName = courseName;
+        this.credit = credit;
+        this.department = department;
     }
 }

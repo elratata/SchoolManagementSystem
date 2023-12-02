@@ -20,8 +20,9 @@ public class Teacher {
     private String fname;
     private String lname;
     private String id;
-    private static int nextID;
-    private final static int MAX_NUM_TEACHERS = 20;
+    private static int nextId;
+    @Getter
+    private static int MAX_NUM_TEACHERS = 20;
 
     /**
      * Constructor for the teacher class
@@ -31,5 +32,10 @@ public class Teacher {
      * @param department the teacher's department
      */
     public Teacher(String fname, String lname, Department department) {
+        nextId++;
+        this.id = String.format("C%03d", nextId);
+        this.fname = fname;
+        this.lname = lname;
+        this.department = department;
     }
 }

@@ -18,6 +18,7 @@ public class Department {
     private String id;
     private String departmentName;
     private static int nextId;
+    @Getter
     private static final int MAX_DEPT_NUM = 5;
 
     /**
@@ -26,5 +27,8 @@ public class Department {
      * @param departmentName the department name
      */
     public Department(String departmentName) {
+        nextId++;
+        this.id = String.format("C%03d", nextId);
+        this.departmentName = departmentName;
     }
 }

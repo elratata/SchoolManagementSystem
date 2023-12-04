@@ -1,7 +1,5 @@
 package org.tony.dto;
 
-import java.util.Arrays;
-
 /**
  * SchoolManagementSystem class
  *
@@ -106,7 +104,9 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printTeachers() {
-        return;
+        for(int i = 0; i < Utils.getLength(teachers); i++){
+            System.out.println(teachers[i]);
+        }
     }
 
     /**
@@ -115,7 +115,9 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printStudents() {
-        return;
+        for(int i = 0; i < Utils.getLength(students); i++){
+            System.out.println(students[i]);
+        }
     }
 
     /**
@@ -124,7 +126,9 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printDepartments() {
-        return;
+        for(int i = 0; i < Utils.getLength(departments); i++){
+            System.out.println(departments[i]);
+        }
     }
 
     /**
@@ -132,8 +136,10 @@ public class SchoolManagementSystem {
      *
      * @author Le Tuan Huy Nguyen
      */
-    public void printCourse() {
-        return;
+    public void printCourses() {
+        for(int i = 0; i < Utils.getLength(courses); i++){
+            System.out.println(courses[i]);
+        }
     }
 
     /**
@@ -228,7 +234,6 @@ public class SchoolManagementSystem {
     public void registerCourse(String studentID, String courseID) {
         Student student = findStudent(studentID);
         Course course = findCourse(courseID);
-        System.out.println(course);
         for(int i = 0; i < course.getStudents().length; i++){
             if (course.getStudents()[i] == null){
                 course.registerStudent(student, i);

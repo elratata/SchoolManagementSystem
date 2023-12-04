@@ -2,12 +2,22 @@ package org.tony.dto;
 
 import java.util.Arrays;
 
+/**
+ * SchoolManagementSystem class
+ *
+ * @author Le Tuan Huy Nguyen
+ */
 public class SchoolManagementSystem {
     private Department[] departments;
     private Student[] students;
     private Teacher[] teachers;
     private Course[] courses;
 
+    /**
+     * Constructor for the school management system
+     *
+     * @author Le Tuan Huy Nguyen
+     */
     public SchoolManagementSystem() {
         departments = new Department[Department.getMAX_DEPT_NUM()];
         students = new Student[Student.getMAX_STUDENT_NUM()];
@@ -23,7 +33,14 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Department findDepartment(String deptID) {
-        return null;
+        if (deptID.charAt(0) == 'D' && deptID.length() == 4) {
+            String idStr = deptID.substring(1);
+            int id = Integer.parseInt(idStr) - 1;
+            return departments[id];
+        } else {
+            System.out.println("Invalid Format");
+            return null;
+        }
     }
 
     /**
@@ -34,7 +51,15 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Teacher findTeacher(String teacherID) {
-        return null;
+        if (teacherID.charAt(0) == 'T' && teacherID.length() == 4) {
+            String idStr = teacherID.substring(1);
+            int id = Integer.parseInt(idStr) - 1;
+            return teachers[id];
+        } else {
+            System.out.println("Invalid Format");
+            return null;
+        }
+
     }
 
     /**
@@ -45,7 +70,15 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Student findStudent(String studentID) {
-        return null;
+        if (studentID.charAt(0) == 'S' && studentID.length() == 4) {
+            String idStr = studentID.substring(1);
+            int id = Integer.parseInt(idStr) - 1;
+            return students[id];
+        } else {
+            System.out.println("Invalid Format");
+            return null;
+        }
+
     }
 
     /**
@@ -56,7 +89,15 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public Course findCourse(String courseID) {
-        return null;
+        if (courseID.charAt(0) == 'C' && courseID.length() == 4) {
+            String idStr = courseID.substring(1);
+            int id = Integer.parseInt(idStr) - 1;
+            return courses[id];
+        } else {
+            System.out.println("Invalid Format");
+            return null;
+        }
+
     }
 
     /**
@@ -102,11 +143,11 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addDepartment(String deptName) {
-        if (Utils.getLength(departments) < Department.getMAX_DEPT_NUM()){
+        if (Utils.getLength(departments) < Department.getMAX_DEPT_NUM()) {
             Department department = new Department(deptName);
             departments[Utils.getLength(departments)] = department;
-            System.out.println(Arrays.toString(departments));
-            System.out.println(Utils.getLength(departments));
+        } else {
+            System.out.println("Max department number reached");
         }
     }
 
@@ -119,7 +160,13 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addTeacher(String fname, String lname, String departmentID) {
-        return;
+        if (Utils.getLength(teachers) < Teacher.getMAX_NUM_TEACHERS()) {
+            Department department = findDepartment(departmentID);
+            Teacher teacher = new Teacher(fname, lname, department);
+            teachers[Utils.getLength(teachers)] = teacher;
+        } else {
+            System.out.println("Max teacher number reached");
+        }
     }
 
     /**
@@ -131,19 +178,31 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addStudent(String fname, String lname, String departmentID) {
-        return;
+        if (Utils.getLength(students) < Student.getMAX_STUDENT_NUM()) {
+            Department department = findDepartment(departmentID);
+            Student student = new Student(fname, lname, department);
+            students[Utils.getLength(students)] = student;
+        } else {
+            System.out.println("Max student number reached");
+        }
     }
 
     /**
      * Adds a course to the system
      *
-     * @param courseName the course name
-     * @param credit     the course credit
-     * @param department the department
+     * @param courseName   the course name
+     * @param credit       the course credit
+     * @param departmentID the department id
      * @author Le Tuan Huy Nguyen
      */
-    public void addCourse(String courseName, double credit, Department department) {
-        return;
+    public void addCourse(String courseName, double credit, String departmentID) {
+        if (Utils.getLength(courses) < Course.getMAX_COURSE_NUM()) {
+            Department department = findDepartment(departmentID);
+            Course course = new Course(courseName, credit, department);
+            courses[Utils.getLength(courses)] = course;
+        } else {
+            System.out.println("Max course number reached");
+        }
     }
 
     /**
@@ -154,7 +213,9 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void modifyCourseTeacher(String teacherID, String courseID) {
-        return;
+        Teacher teacher = findTeacher(teacherID);
+        Course course = findCourse(courseID);
+        course.setTeacher(teacher);
     }
 
     /**
@@ -165,8 +226,13 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void registerCourse(String studentID, String courseID) {
-        return;
+        Student student = findStudent(studentID);
+        Course course = findCourse(courseID);
+        System.out.println(course);
+        for(int i = 0; i < course.getStudents().length; i++){
+            if (course.getStudents()[i] == null){
+                course.registerStudent(student, i);
+            }
+        }
     }
-
-
 }

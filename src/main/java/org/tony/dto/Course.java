@@ -35,5 +35,10 @@ public class Course {
         this.courseName = courseName;
         this.credit = credit;
         this.department = department;
+        this.students = new Student[MAX_STUDENT_NUM_PER_COURSE];
+    }
+
+    public void registerStudent(Student student, int index){
+        students[index] = student;
     }
 }

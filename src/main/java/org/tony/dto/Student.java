@@ -37,9 +37,10 @@ public class Student {
      */
     public Student(String fname, String lname, Department department) {
         nextId++;
-        this.id = String.format("C%03d", nextId);
+        this.id = String.format("S%03d", nextId);
         this.fname = fname;
         this.lname = lname;
+        this.name = fname + " " + lname;
         this.department = department;
     }
 }

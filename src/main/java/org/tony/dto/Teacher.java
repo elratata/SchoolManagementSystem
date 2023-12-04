@@ -33,9 +33,10 @@ public class Teacher {
      */
     public Teacher(String fname, String lname, Department department) {
         nextId++;
-        this.id = String.format("C%03d", nextId);
+        this.id = String.format("T%03d", nextId);
         this.fname = fname;
         this.lname = lname;
+        this.name = fname + " " + lname;
         this.department = department;
     }
 }

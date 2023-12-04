@@ -28,7 +28,7 @@ public class Department {
      */
     public Department(String departmentName) {
         nextId++;
-        this.id = String.format("C%03d", nextId);
+        this.id = String.format("D%03d", nextId);
         this.departmentName = departmentName;
     }
 }

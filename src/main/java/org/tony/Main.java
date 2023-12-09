@@ -17,11 +17,16 @@ public class Main {
         system.addCourse("Introduction to yoyoing", 4, "D002");
 
         system.registerCourse("S001", "C001");
+        system.registerCourse("S001", "C001");
+        system.registerCourse("S001", "C001");
+        system.registerCourse("S001", "C001");
+        system.registerCourse("S001", "C001");
+        system.registerCourse("S001", "C001");
         system.modifyCourseTeacher("T001", "C001");
         system.printTeachers();
-//        System.out.println(system.findDepartment("D003"));
-//        System.out.println(system.findTeacher("T001"));
-//        System.out.println(system.findStudent("S001"));
-//        System.out.println(system.findCourse("C001"));
+        System.out.println(system.findDepartment("D003"));
+        System.out.println(system.findTeacher("T001"));
+        System.out.println(system.findStudent("S001"));
+        System.out.println(system.findCourse("C001"));
     }
 }

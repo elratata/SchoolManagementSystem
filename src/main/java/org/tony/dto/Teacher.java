@@ -21,8 +21,6 @@ public class Teacher {
     private String lname;
     private String id;
     private static int nextId;
-    @Getter
-    private static int MAX_NUM_TEACHERS = 20;
 
     /**
      * Constructor for the teacher class

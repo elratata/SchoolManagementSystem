@@ -24,21 +24,21 @@ public class Course {
     private String id;
     private static int nextId;
 
-    @Getter
-    private static final int MAX_STUDENT_NUM_PER_COURSE = 5; // Max # of students per course
-    @Getter
-    private static final int MAX_COURSE_NUM = 30; // Max # of courses per school
-
     public Course(String courseName, double credit, Department department) {
         nextId++;
         this.id = String.format("C%03d", nextId);
         this.courseName = courseName;
         this.credit = credit;
         this.department = department;
-        this.students = new Student[MAX_STUDENT_NUM_PER_COURSE];
+        this.students = new Student[SchoolManagementSystem.getMAX_STUDENT_NUM_PER_COURSE()];
     }
 
-    public void registerStudent(Student student, int index){
-        students[index] = student;
+    public void registerStudent(Student student, int index) {
+        if (Utils.getLength(student.getCourses()) < SchoolManagementSystem.getMAX_COURSE_TAKEN()) {
+            students[index] = student;
+            student.setCourseNum(student.getCourseNum() + 1);
+        } else {
+            System.out.println("Max number of courses reached");
+        }
     }
 }

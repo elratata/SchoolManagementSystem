@@ -18,8 +18,6 @@ public class Department {
     private String id;
     private String departmentName;
     private static int nextId;
-    @Getter
-    private static final int MAX_DEPT_NUM = 5;
 
     /**
      * Constructor for the department

@@ -1,5 +1,7 @@
 package org.tony.dto;
 
+import lombok.Getter;
+
 /**
  * SchoolManagementSystem class
  *
@@ -11,16 +13,25 @@ public class SchoolManagementSystem {
     private Teacher[] teachers;
     private Course[] courses;
 
+    @Getter
+    private static final int MAX_STUDENT_NUM_PER_COURSE = 5; // Max # of students per course
+    private static final int MAX_COURSE_NUM = 30; // Max # of courses per school
+    private static final int MAX_NUM_TEACHERS = 20;
+    private static final int MAX_DEPT_NUM = 5;
+    @Getter
+    private final static int MAX_COURSE_TAKEN = 5; // max # of course per student
+    private final static int MAX_STUDENT_NUM = 200; // max # of students per school
+
     /**
      * Constructor for the school management system
      *
      * @author Le Tuan Huy Nguyen
      */
     public SchoolManagementSystem() {
-        departments = new Department[Department.getMAX_DEPT_NUM()];
-        students = new Student[Student.getMAX_STUDENT_NUM()];
-        teachers = new Teacher[Teacher.getMAX_NUM_TEACHERS()];
-        courses = new Course[Course.getMAX_COURSE_NUM()];
+        departments = new Department[MAX_DEPT_NUM];
+        students = new Student[MAX_STUDENT_NUM];
+        teachers = new Teacher[MAX_NUM_TEACHERS];
+        courses = new Course[MAX_COURSE_NUM];
     }
 
     /**
@@ -149,7 +160,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addDepartment(String deptName) {
-        if (Utils.getLength(departments) < Department.getMAX_DEPT_NUM()) {
+        if (Utils.getLength(departments) < MAX_DEPT_NUM) {
             Department department = new Department(deptName);
             departments[Utils.getLength(departments)] = department;
         } else {
@@ -166,7 +177,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addTeacher(String fname, String lname, String departmentID) {
-        if (Utils.getLength(teachers) < Teacher.getMAX_NUM_TEACHERS()) {
+        if (Utils.getLength(teachers) < MAX_NUM_TEACHERS) {
             Department department = findDepartment(departmentID);
             Teacher teacher = new Teacher(fname, lname, department);
             teachers[Utils.getLength(teachers)] = teacher;
@@ -184,7 +195,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addStudent(String fname, String lname, String departmentID) {
-        if (Utils.getLength(students) < Student.getMAX_STUDENT_NUM()) {
+        if (Utils.getLength(students) < MAX_STUDENT_NUM) {
             Department department = findDepartment(departmentID);
             Student student = new Student(fname, lname, department);
             students[Utils.getLength(students)] = student;
@@ -202,7 +213,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void addCourse(String courseName, double credit, String departmentID) {
-        if (Utils.getLength(courses) < Course.getMAX_COURSE_NUM()) {
+        if (Utils.getLength(courses) < MAX_COURSE_NUM) {
             Department department = findDepartment(departmentID);
             Course course = new Course(courseName, credit, department);
             courses[Utils.getLength(courses)] = course;

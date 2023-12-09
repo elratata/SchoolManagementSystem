@@ -23,10 +23,6 @@ public class Student {
     private Department department;
     private Course[] courses;
     private String id;
-    @Getter
-    private final static int MAX_COURSE_TAKEN = 5; // max # of course per student
-    @Getter
-    private final static int MAX_STUDENT_NUM = 200; // max # of students per school
 
     /**
      * Constructor for student
@@ -42,5 +38,6 @@ public class Student {
         this.lname = lname;
         this.name = fname + " " + lname;
         this.department = department;
+        this.courses = new Course[SchoolManagementSystem.getMAX_STUDENT_NUM_PER_COURSE()];
     }
 }

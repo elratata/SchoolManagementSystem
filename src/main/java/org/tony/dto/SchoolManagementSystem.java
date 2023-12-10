@@ -1,12 +1,20 @@
 package org.tony.dto;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.util.Arrays;
 
 /**
  * SchoolManagementSystem class
  *
  * @author Le Tuan Huy Nguyen
  */
+@Getter
+@Setter
+@EqualsAndHashCode
 public class SchoolManagementSystem {
     private Department[] departments;
     private Student[] students;
@@ -251,5 +259,53 @@ public class SchoolManagementSystem {
         } else {
             System.out.println("Max number of courses reached");
         }
+    }
+
+    /**
+     * toString for SchoolManagementSystem
+     * @return string for SchoolManagementSystem
+     */
+    @Override
+    public String toString() {
+        String out = "SchoolManagementSystem{" +
+                "departments=[";
+        int departCount = Utils.getLength(departments);
+        for (var i = 0; i < departCount; i++) {
+            out += departments[i].getId();
+            if (i < departCount - 1) {
+                // only comma on elements before last
+                out += ", ";
+            }
+        }
+        out += "], students=[";
+        int studentCount = Utils.getLength(students);
+        for (var i = 0; i < studentCount; i++) {
+            out += students[i].getId();
+            if (i < studentCount - 1) {
+                // only comma on elements before last
+                out += ", ";
+            }
+        }
+        out += "], teachers=[";
+        int teacherCount = Utils.getLength(teachers);
+        for (var i = 0; i < teacherCount; i++) {
+            out += teachers[i].getId();
+            if (i < teacherCount - 1) {
+                // only comma on elements before last
+                out += ", ";
+            }
+        }
+        out += "], courses=[";
+        int courseCount = Utils.getLength(courses);
+        for (var i = 0; i < courseCount; i++) {
+            out += courses[i].getId();
+            if (i < courseCount - 1) {
+                // only comma on elements before last
+                out += ", ";
+            }
+        }
+        out += "]}";
+
+        return out;
     }
 }

@@ -28,5 +28,6 @@ public class Main {
         System.out.println(system.findTeacher("T001"));
         System.out.println(system.findStudent("S001"));
         System.out.println(system.findCourse("C001"));
+        System.out.println(system);
     }
 }

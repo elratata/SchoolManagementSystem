@@ -2,6 +2,8 @@ package org.tony;
 
 import org.tony.dto.SchoolManagementSystem;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         SchoolManagementSystem system = new SchoolManagementSystem();
@@ -29,5 +31,6 @@ public class Main {
         System.out.println(system.findStudent("S001"));
         System.out.println(system.findCourse("C001"));
         System.out.println(system);
+        System.out.println(Arrays.toString(new String[]{"ok","i"}));
     }
 }

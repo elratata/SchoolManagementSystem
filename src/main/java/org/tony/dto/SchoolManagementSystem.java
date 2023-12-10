@@ -3,9 +3,6 @@ package org.tony.dto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
-import java.util.Arrays;
 
 /**
  * SchoolManagementSystem class
@@ -28,6 +25,8 @@ public class SchoolManagementSystem {
     private static final int MAX_DEPT_NUM = 5;
     @Getter
     private final static int MAX_COURSE_TAKEN = 5; // max # of course per student
+    @Getter
+    private final static int MAX_COURSE_PER_TEACHER = 3; // max # of course per teacher
     private final static int MAX_STUDENT_NUM = 200; // max # of students per school
 
     /**
@@ -241,6 +240,7 @@ public class SchoolManagementSystem {
         Teacher teacher = findTeacher(teacherID);
         Course course = findCourse(courseID);
         course.setTeacher(teacher);
+        teacher.addCourse(course);
     }
 
     /**
@@ -254,6 +254,12 @@ public class SchoolManagementSystem {
         Student student = findStudent(studentID);
         Course course = findCourse(courseID);
         if (student.getCourseNum() < MAX_COURSE_TAKEN) {
+            for(int i = 0; i < Utils.getLength(course.getStudents()); i++){
+                if (course.getStudents()[i] == student){
+                    System.out.println("Already registered");
+                    return;
+                }
+            }
             course.registerStudent(student);
             student.registerCourse(course);
         } else {
@@ -264,6 +270,7 @@ public class SchoolManagementSystem {
     /**
      * toString for SchoolManagementSystem
      * @return string for SchoolManagementSystem
+     * @author Le Tuan Huy Nguyen
      */
     @Override
     public String toString() {
@@ -305,7 +312,6 @@ public class SchoolManagementSystem {
             }
         }
         out += "]}";
-
         return out;
     }
 }

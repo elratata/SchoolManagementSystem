@@ -23,6 +23,7 @@ public class Department {
      * Constructor for the department
      *
      * @param departmentName the department name
+     * @author Le Tuan Huy Nguyen
      */
     public Department(String departmentName) {
         nextId++;

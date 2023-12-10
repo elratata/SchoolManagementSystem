@@ -28,6 +28,7 @@ public class Course {
      * @param courseName name of the course
      * @param credit     the number of credit
      * @param department the department
+     * @author Le Tuan Huy Nguyen
      */
     public Course(String courseName, double credit, Department department) {
         nextId++;
@@ -39,7 +40,7 @@ public class Course {
     }
 
     /**
-     * toString method to prevent StackOverflowError from the courses and students calling each other back and forth
+     * toString for course
      *
      * @return Course string, with the students being the student ids
      * @author Le Tuan Huy Nguyen
@@ -49,7 +50,7 @@ public class Course {
         String out = "Course{" +
                 "teacher=" + teacher +
                 ", courseName='" + courseName + '\'' +
-                ", students=String[";
+                ", students=[";
 
         int studentCount = Utils.getLength(students);
         for (var i = 0; i < studentCount; i++) {

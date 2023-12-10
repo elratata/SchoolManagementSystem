@@ -115,7 +115,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printTeachers() {
-        for(int i = 0; i < Utils.getLength(teachers); i++){
+        for (int i = 0; i < Utils.getLength(teachers); i++) {
             System.out.println(teachers[i]);
         }
     }
@@ -126,7 +126,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printStudents() {
-        for(int i = 0; i < Utils.getLength(students); i++){
+        for (int i = 0; i < Utils.getLength(students); i++) {
             System.out.println(students[i]);
         }
     }
@@ -137,7 +137,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printDepartments() {
-        for(int i = 0; i < Utils.getLength(departments); i++){
+        for (int i = 0; i < Utils.getLength(departments); i++) {
             System.out.println(departments[i]);
         }
     }
@@ -148,7 +148,7 @@ public class SchoolManagementSystem {
      * @author Le Tuan Huy Nguyen
      */
     public void printCourses() {
-        for(int i = 0; i < Utils.getLength(courses); i++){
+        for (int i = 0; i < Utils.getLength(courses); i++) {
             System.out.println(courses[i]);
         }
     }
@@ -245,10 +245,11 @@ public class SchoolManagementSystem {
     public void registerCourse(String studentID, String courseID) {
         Student student = findStudent(studentID);
         Course course = findCourse(courseID);
-        for(int i = 0; i < course.getStudents().length; i++){
-            if (course.getStudents()[i] == null){
-                course.registerStudent(student, i);
-            }
+        if (student.getCourseNum() < MAX_COURSE_TAKEN) {
+            course.registerStudent(student);
+            student.registerCourse(course);
+        } else {
+            System.out.println("Max number of courses reached");
         }
     }
 }

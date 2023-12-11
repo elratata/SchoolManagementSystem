@@ -20,10 +20,6 @@ public class Main {
 
         system.registerCourse("S001", "C001");
         system.registerCourse("S001", "C001");
-        system.registerCourse("S001", "C001");
-        system.registerCourse("S001", "C001");
-        system.registerCourse("S001", "C001");
-        system.registerCourse("S001", "C001");
         system.modifyCourseTeacher("T001", "C001");
         system.printTeachers();
         System.out.println(system.findDepartment("D003"));
@@ -31,6 +27,5 @@ public class Main {
         System.out.println(system.findStudent("S001"));
         System.out.println(system.findCourse("C001"));
         System.out.println(system);
-        System.out.println(Arrays.toString(new String[]{"ok","i"}));
     }
 }

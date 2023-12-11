@@ -41,32 +41,27 @@ public class Teacher {
 
     /**
      * add the course to the teacher's courses
+     *
      * @param course the course to be added
      * @author Le Tuan Huy Nguyen
      */
-    public void addCourse(Course course){
-        if (Utils.getLength(courses) < SchoolManagementSystem.getMAX_COURSE_PER_TEACHER()){
+    public void addCourse(Course course) {
+        if (Utils.getLength(courses) < SchoolManagementSystem.getMAX_COURSE_PER_TEACHER()) {
             courses[Utils.getLength(courses)] = course;
-        }else {
+        } else {
             System.out.println("Max courses reached");
         }
-
     }
 
     /**
      * toString for Teacher
+     *
      * @return Teacher string with courses ids
      * @author Le Tuan Huy Nguyen
      */
     @Override
     public String toString() {
-        String out = "Teacher{" +
-                "name='" + name + '\'' +
-                ", department=" + department +
-                ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
-                ", id='" + id + '\'' +
-                ", courses=[";
+        String out = "Teacher{" + "name='" + name + '\'' + ", department=" + department + ", fname='" + fname + '\'' + ", lname='" + lname + '\'' + ", id='" + id + '\'' + ", courses=[";
         int courseCount = Utils.getLength(courses);
         for (var i = 0; i < courseCount; i++) {
             out += courses[i].getId();

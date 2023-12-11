@@ -47,10 +47,7 @@ public class Course {
      */
     @Override
     public String toString() {
-        String out = "Course{" +
-                "teacher=" + teacher +
-                ", courseName='" + courseName + '\'' +
-                ", students=[";
+        String out = "Course{" + "teacher=" + teacher + ", courseName='" + courseName + '\'' + ", students=[";
 
         int studentCount = Utils.getLength(students);
         for (var i = 0; i < studentCount; i++) {
@@ -60,12 +57,7 @@ public class Course {
                 out += ", ";
             }
         }
-        out += "]" +
-                ", credit=" + credit +
-                ", studentNum=" + studentNum +
-                ", department=" + department +
-                ", id='" + id + '\'' +
-                '}';
+        out += "]" + ", credit=" + credit + ", studentNum=" + studentNum + ", department=" + department + ", id='" + id + '\'' + '}';
 
         return out;
     }

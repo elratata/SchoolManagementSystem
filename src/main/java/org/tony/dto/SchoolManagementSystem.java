@@ -94,7 +94,6 @@ public class SchoolManagementSystem {
             System.out.println("Invalid Format");
             return null;
         }
-
     }
 
     /**
@@ -113,7 +112,6 @@ public class SchoolManagementSystem {
             System.out.println("Invalid Format");
             return null;
         }
-
     }
 
     /**
@@ -254,8 +252,8 @@ public class SchoolManagementSystem {
         Student student = findStudent(studentID);
         Course course = findCourse(courseID);
         if (student.getCourseNum() < MAX_COURSE_TAKEN) {
-            for(int i = 0; i < Utils.getLength(course.getStudents()); i++){
-                if (course.getStudents()[i] == student){
+            for (int i = 0; i < Utils.getLength(course.getStudents()); i++) {
+                if (course.getStudents()[i] == student) {
                     System.out.println("Already registered");
                     return;
                 }
@@ -269,13 +267,13 @@ public class SchoolManagementSystem {
 
     /**
      * toString for SchoolManagementSystem
+     *
      * @return string for SchoolManagementSystem
      * @author Le Tuan Huy Nguyen
      */
     @Override
     public String toString() {
-        String out = "SchoolManagementSystem{" +
-                "departments=[";
+        String out = "SchoolManagementSystem{" + "departments=[";
         int departCount = Utils.getLength(departments);
         for (var i = 0; i < departCount; i++) {
             out += departments[i].getId();
